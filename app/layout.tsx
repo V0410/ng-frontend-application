@@ -1,5 +1,8 @@
+import Header from '@/components/Organisms/Header';
 import { ClientProviders } from './providers';
 import StyledComponentsRegistry from './registry';
+import { StoreProvider, store } from '@/components/jotai/store';
+import { DevTools } from 'jotai-devtools';
 
 export default function RootLayout({
 	// Layouts must accept a children prop.
@@ -19,7 +22,10 @@ export default function RootLayout({
 
 			<body>
 				<StyledComponentsRegistry>
-					<ClientProviders>{children}</ClientProviders>
+					<ClientProviders>
+						<Header />
+						{children}
+					</ClientProviders>
 				</StyledComponentsRegistry>
 			</body>
 		</html>
